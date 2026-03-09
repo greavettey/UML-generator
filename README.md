@@ -1,48 +1,31 @@
-# Java to UML Generator (JS-Native Fork)
+# Java to UML Generator (100% Client-Side Fork)
 
-A clean, modern web application that automatically translates Java source code into high-quality UML class diagrams. 
+A lightning-fast, zero-backend web application that automatically translates Java source code into high-quality UML class diagrams directly in your browser. 
+
+This project is a fork of [iqbalhussein/uml-generator](https://github.com/iqbalhussein/uml-generator). **This fork completely removes the Python backend and Next.js/React dependencies, reimagining the tool as a pure Vanilla JS static site.** By leveraging a native JavaScript ANTLR4 parser and Vite, your source code never leaves your machine, ensuring total privacy, zero server costs, and instant diagram generation.
 
 ## Features
 
-- **Drag-and-Drop Uploads**: Easily upload multiple `.java` files simultaneously.
-- **Accurate UML Parsing**: Accurately maps Java visibility modifiers (`+`, `-`, `#`), abstract methods, interfaces, inheritance (`IS-A`), and composition relationships (`HAS-A`) natively within the Node.js ecosystem.
-- **Smart Filtering**: Automatically hides common Java standard libraries (like `ArrayList`, `Stack`, `HashMap`) from cluttering the diagram, ensuring the UML strictly focuses on your uploaded architecture.
-- **Interactive Viewer**: Pan, zoom, and inspect generated UML diagrams using the built-in React component.
-- **High-Res Export**: Download Diagrams as scalable vector shapes (SVG) or directly export them to crisp, upscaled Image files (PNG).
+- **100% Private & Serverless**: Files are read and parsed entirely within your browser using the HTML5 File API. No source code is ever uploaded to a server.
+- **Accurate UML Parsing**: Accurately maps Java visibility modifiers (`+`, `-`, `#`), abstract methods, interfaces, inheritance (`IS-A`), and composition relationships (`HAS-A`) natively via ANTLR4.
+- **Smart Filtering**: Automatically hides common Java standard libraries (like `ArrayList`, `Stack`, `HashMap`) from cluttering the diagram.
+- **Interactive Viewer**: Seamlessly pan and zoom around massive architecture diagrams using the lightweight `panzoom` library.
+- **High-Res Export**: Download Diagrams as scalable vector shapes (SVG) or directly export them to crisp, upscaled Image files (PNG) via native browser canvas rendering.
+- **Batch Drag-and-Drop**: Easily upload entire directories or multiple `.java` files simultaneously.
 
 ## Architecture
 
-1. **Frontend**: A Next.js (React) application built with TailwindCSS for styling and `react-zoom-pan-pinch` for diagram interaction. Features native integration with Mermaid.js for drawing.
-2. **Parser Pipeline**: The heavy lifting is handled entirely in JavaScript. Using an ANTLR4-generated lexer and parser, the app traverses the Java Abstract Syntax Tree (AST) using a custom `ParseTreeWalker` and outputs a Mermaid class diagram definition string. 
-
-## Prerequisites
-
-- **Node.js** (v18 or newer)
+1. **Frontend UI**: Vanilla HTML/JS/CSS bundled with **Vite**. Interaction is handled via lightweight DOM manipulation and the `panzoom` utility.
+2. **Parser Pipeline**: The heavy lifting is handled natively in JavaScript. Using an ANTLR4-generated lexer and parser, the app traverses the Java Abstract Syntax Tree (AST) using a custom `ParseTreeWalker`.
+3. **Rendering Engine**: The parser outputs a raw `classDiagram` string which is compiled into a vector graphic using **Mermaid.js**.
 
 ## Local Development Setup
 
+Because this is a static Vite application, you only need Node.js installed to download the dependencies and run the local development server.
+
 1. **Install Dependencies:**
-   Navigate to the project root and install the required npm packages (including `antlr4`).
+   Navigate to the project root and install the required npm packages.
 
    ```bash
    npm install
    ```
-
-2. **Run the Development Server:**
-   Kickstart the Next.js development server.
-
-   ```bash
-   npm run dev
-   ```
-
-3. **Open the App:**
-   Open your browser and navigate to `http://localhost:3000`.
-
-## Deployment
-
-**Vercel / Serverless Deployment (Recommended)**
-You can deploy this directly to Vercel, Netlify, or any standard Next.js hosting environment out-of-the-box. The parser runs seamlessly as part of the standard Node.js serverless functions. 
-
-## License
-
-MIT License
