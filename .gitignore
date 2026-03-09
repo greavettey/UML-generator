@@ -12,3 +12,4 @@ out/
 
 # setup/testing 
 antlr/
+dist/
