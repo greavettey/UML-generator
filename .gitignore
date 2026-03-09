@@ -1,0 +1,18 @@
+# Node.js
+web-app/node_modules/
+web-app/.next/
+web-app/out/
+web-app/.env*.local
+
+# Python
+python-parser/__pycache__/
+python-parser/*.pyc
+python-parser/.pytest_cache/
+python-parser/venv/
+python-parser/env/
+
+# OS/Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
