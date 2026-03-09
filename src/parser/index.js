@@ -1,6 +1,6 @@
 import antlr4 from "antlr4";
-import Java8Lexer from "../generated/Java8Lexer.js";
-import Java8Parser from "../generated/Java8Parser.mjs";
+import Java8Lexer from "./generated/Java8Lexer.js";
+import Java8Parser from "./generated/Java8Parser.mjs";
 
 import generateMermaid from "./GenerateMermaid.js";
 import JavaToMermaidListener from "./JavaToMermaidListener.js";

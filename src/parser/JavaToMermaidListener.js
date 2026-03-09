@@ -1,4 +1,4 @@
-import Java8ParserListener from "../generated/Java8ParserListener.mjs";
+import Java8ParserListener from "./generated/Java8ParserListener.mjs";
 
 class JavaToMermaidListener extends Java8ParserListener {
     constructor() {
