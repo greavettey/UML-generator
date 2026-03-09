@@ -23,6 +23,8 @@ This project is a fork of [iqbalhussein/uml-generator](https://github.com/iqbalh
 
 ## Local Development Setup
 
+> If you want to run this locally, change the --base argument in npm build to `./` instead of `/p/umlgen/` to ensure correct asset paths.
+
 Because this is a static Vite application, you only need Node.js installed to download the dependencies and run the local development server.
 
 1. **Install Dependencies:**
